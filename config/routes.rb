@@ -1,7 +1,26 @@
 Rails.application.routes.draw do
-  get 'home/top'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get "likes/:post_id/create" => "likes#create"
+  get "likes/:post_id/destroy" => "likes#destroy"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get "users/:id/likes" => "users#likes"
+  post "users/:id/update" => "users#update"
+  get "users/:id/edit" => "users#edit"
+  post "users/create" => "users#create"
+  get "signup" => "users#new"
+  get "users/index" => "users#index"
+  get "users/:id" => "users#show"
+  post "login" => "users#login"
+  get "logout" => "users#logout"
+  get "login" => "users#login_form"
+
+  get "posts/index" => "posts#index"
+  get "posts/new" => "posts#new"
+  get "posts/:id" => "posts#show"
+  post "posts/create" => "posts#create"
+  get "posts/:id/edit" => "posts#edit"
+  post "posts/:id/update" => "posts#update"
+  get "posts/:id/destroy" => "posts#destroy"
+
+  get "/" => "home#top"
+  get "about" => "home#about"
 end
