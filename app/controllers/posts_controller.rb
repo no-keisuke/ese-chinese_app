@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   def jp_to_ch(tmp)
-    changed = "a"
+    changed = " "
     i = 0
     j = 0
     while tmp[i] != nil
