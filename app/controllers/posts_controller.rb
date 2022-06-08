@@ -20,13 +20,13 @@ class PostsController < ApplicationController
     return (s =~ /^[ぁ-んァ-ヶー]+$/) == 0
   end
 
-  def jp_to_ch(tmp)
+  def jp_to_ch(str)
     changed = " "
     i = 0
     j = 0
-    while tmp[i] != nil
-      if !hirakana?(tmp[i])
-        changed[j] = tmp[i]
+    while str[i] != nil
+      if !hirakana?(str[i])
+        changed[j] = str[i]
         j = j.succ
       end
       i = i.succ
@@ -35,9 +35,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    tmp = params[:content]
     @post = Post.new(
-      content: jp_to_ch(tmp),
+      content: jp_to_ch(params[:content]),
       user_id: @current_user.id
     )
     if @post.save
@@ -53,9 +52,8 @@ class PostsController < ApplicationController
   end
 
   def update
-    tmp = params[:content]
     @post = Post.find_by(id: params[:id])
-    @post.content = jp_to_ch(tmp)
+    @post.content = jp_to_ch(params[:content])
     if @post.save
       flash[:notice] = "投稿を編集しました"
       redirect_to("/posts/index")
