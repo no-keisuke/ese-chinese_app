@@ -1,24 +1,3 @@
-# README
+# 似非中国語呟
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+呟きからひらがなとカタカナを削除し、擬似的な中国語にするtweetアプリ
